@@ -35,7 +35,7 @@
                   <!-- RD Navbar Toggle-->
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
-                  <img class="brand-logo-dark" src="{{ asset('assets/images/casanovalogo.jpeg') }}" alt="" />
+                  <img class="brand-logo-dark logocas" src="{{ asset('assets/images/casanovalogo.jpeg') }}" alt="" />
                   <div class="rd-navbar-brand">
                     <!--Brand--><a class="brand" href="#"><img class="brand-logo-light" src="{{ asset('assets/images/logo-inverse-230x62.png') }}" alt="" width="115" height="31"/></a>
                   </div>
@@ -399,7 +399,24 @@
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
       })
-          </script>
+      
+      (function($) {
+            var $window = $(window),
+                event   = $('.logocas');
+
+            function resize() {
+                if ($window.width() < 514) {
+                    event.addClass('d-none');
+                }else{
+                  event.removeClass('d-none');
+                }
+            }
+
+            $window
+                .resize(resize)
+                .trigger('resize');
+        })(jQuery);
+    </script>
   </body>
 
 </html>
